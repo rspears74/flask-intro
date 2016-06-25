@@ -2,3 +2,5 @@ venv
 venvmac
 *.pyc
 *.db
+.idea
+.idea/*
