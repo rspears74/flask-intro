@@ -1,0 +1,4 @@
+venv
+venvmac
+*.pyc
+*.db
