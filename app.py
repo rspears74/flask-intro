@@ -1,7 +1,7 @@
 # import the Flask class from the flask module
 from flask import Flask, render_template, redirect, url_for, request, session,\
     flash, g
-from flask_sqlalchemy import SQLAlchemy
+from flask.ext.sqlalchemy import SQLAlchemy
 from functools import wraps
 # import sqlite3
 
@@ -11,7 +11,7 @@ app = Flask(__name__)
 # config
 import os
 app.config.from_object(os.environ['APP_SETTINGS'])
-print(os.environ(['APP_SETTINGS']))
+print(os.environ['APP_SETTINGS'])
 
 # create the sqlalchemy object
 db = SQLAlchemy(app)
