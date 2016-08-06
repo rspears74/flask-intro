@@ -1,5 +1,6 @@
 from project import app
 import unittest
+from project.models import bcrypt
 
 
 class FlaskTestCase(unittest.TestCase):
