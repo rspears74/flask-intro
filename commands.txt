@@ -1,1 +1,7 @@
 heroku config:set APP_SETTINGS=config.ProductionConfig --remote heroku
+
+
+# inside $VIRTUAL_ENV/bin/postactivate
+export APP_SETTINGS=config.DevelopmentConfig
+
+export DATABASE_URL=postgresql://localhost/flask_intro
