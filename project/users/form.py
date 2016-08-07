@@ -6,6 +6,14 @@ from project import db
 from project.models import User
 
 
+class IsAlphaNum(object):
+    def __call__(self, form, field):
+        if field.data.isalnum() == False:
+            raise ValidationError(
+                'Username must contain only letters and numbers'
+            )
+
+
 class IsUnique(object):
     def __init__(self, db_field=None):
         self.db_field = db_field
@@ -28,7 +36,8 @@ class RegisterForm(Form):
         validators=[
             DataRequired(),
             Length(min=3, max=25),
-            IsUnique(db_field='name')
+            IsUnique(db_field='name'),
+            IsAlphaNum()
         ]
     )
     email = StringField(
