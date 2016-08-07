@@ -4,3 +4,4 @@ venvmac
 *.db
 .idea
 .idea/*
+coverage
