@@ -2,12 +2,12 @@
 #### import ####
 ################
 
-from project import app, db
-from project.models import BlogPost
+from project import app, db # pragma: no cover
+from project.models import BlogPost # pragma: no cover
 from flask import render_template, Blueprint, flash, request, redirect,\
-url_for
-from flask_login import login_required, current_user
-from project.home.form import MessageForm
+url_for # pragma: no cover
+from flask_login import login_required, current_user # pragma: no cover
+from project.home.form import MessageForm # pragma: no cover
 
 ################
 #### config ####
@@ -16,7 +16,7 @@ from project.home.form import MessageForm
 home_blueprint = Blueprint(
     'home', __name__,
     template_folder='templates'
-)
+) # pragma: no cover
 
 
 ################

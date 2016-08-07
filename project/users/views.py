@@ -1,8 +1,10 @@
-from flask import render_template, redirect, url_for, request, flash, Blueprint
-from flask_login import login_user, login_required, logout_user
-from project.users.form import LoginForm, RegisterForm
-from project.models import User, bcrypt
-from project import db
+from flask import render_template, redirect, url_for,\
+request, flash, Blueprint # pragma: no cover
+from flask_login import login_user, login_required,\
+logout_user # pragma: no cover
+from project.users.form import LoginForm, RegisterForm # pragma: no cover
+from project.models import User, bcrypt # pragma: no cover
+from project import db # pragma: no cover
 
 ################
 #### config ####
@@ -11,7 +13,7 @@ from project import db
 users_blueprint = Blueprint(
     'users', __name__,
     template_folder='templates'
-)
+) # pragma: no cover
 
 
 ################
