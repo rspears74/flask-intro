@@ -23,7 +23,7 @@ home_blueprint = Blueprint(
 #### routes ####
 ################
 
-@home_blueprint.route('/', methods=['GET', 'POST'])
+@home_blueprint.route('/home', methods=['GET', 'POST'])
 @login_required
 def home():
     error = None
@@ -48,6 +48,6 @@ def home():
         )
 
 
-@home_blueprint.route('/welcome')
+@home_blueprint.route('/')
 def welcome():
     return render_template('welcome.html')

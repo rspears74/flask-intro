@@ -15,7 +15,7 @@ class BlogPostTest(BaseTestCase):
                 follow_redirects=True
             )
             response = self.client.post(
-                '/',
+                '/home',
                 data=dict(title="test", description="test"),
                 follow_redirects=True
             )
