@@ -1,6 +1,7 @@
 from project import db
 from project import bcrypt
 
+
 class BlogPost(db.Model):
 
     __tablename__ = "posts"
@@ -8,11 +9,13 @@ class BlogPost(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String, nullable=False)
     description = db.Column(db.String, nullable=False)
+    timestamp = db.Column(db.String)
     author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
-    def __init__(self, title, description, author_id):
+    def __init__(self, title, description, author_id, timestamp):
         self.title = title
         self.description = description
+        self.timestamp = timestamp
         self.author_id = author_id
 
     def __repr__(self):
