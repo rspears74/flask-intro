@@ -11,7 +11,8 @@
 {% for post in posts %}
   <strong>Title:</strong> {{ post.title }} <br>
   <strong>Post:</strong> {{ post.description }} <br>
-  <strong>Author:</strong> @{{ post.author.name }} <br>
+  <strong>Author:</strong>
+  <a href="/user/{{ post.author.name }}"> @{{ post.author.name }} </a><br>
   <strong>Time:</strong> {{ post.timestamp.strftime('%b %-d %y %-I:%M %p') }} <br>
 <br>
 {% endfor %}
