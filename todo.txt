@@ -1,4 +1,5 @@
-add timestamp to posts
-add a way to view another users page/posts
+refactor the way posts look
 add a way to "follow" another user
 reconfigure home page to show posts from followed users
+add flask-mail and a password recovery system
+add a nice layout
