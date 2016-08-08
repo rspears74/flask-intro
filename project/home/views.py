@@ -34,7 +34,7 @@ def home():
             form.title.data,
             form.description.data,
             current_user.id,
-            datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+            datetime.now()
         )
         db.session.add(new_message)
         db.session.commit()
@@ -44,6 +44,7 @@ def home():
         posts = db.session.query(BlogPost).order_by(BlogPost.timestamp.desc())
         return render_template(
             'index.html',
+            username=current_user.name,
             posts=posts,
             form=form,
             error=error

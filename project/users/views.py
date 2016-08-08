@@ -3,7 +3,7 @@ request, flash, Blueprint # pragma: no cover
 from flask_login import login_user, login_required,\
 logout_user # pragma: no cover
 from project.users.form import LoginForm, RegisterForm # pragma: no cover
-from project.models import User, bcrypt # pragma: no cover
+from project.models import User, BlogPost, bcrypt # pragma: no cover
 from project import db # pragma: no cover
 
 ################
@@ -60,3 +60,21 @@ def register():
         login_user(user)
         return redirect(url_for('home.home'))
     return render_template('register.html', form=form)
+
+
+@users_blueprint.route('/user/<username>')
+@login_required
+def user_profile(username):
+    error = None
+    profile_user = User.query.filter_by(name=username).first()
+    if profile_user is not None:
+        posts = db.session.query(BlogPost).filter_by(author_id=profile_user.id).order_by(BlogPost.timestamp.desc())
+    else:
+        posts = []
+        error = "Sorry, we couldn't find a user with that name."
+    return render_template(
+        'profile.html',
+        username=username,
+        posts=posts,
+        error=error
+        )

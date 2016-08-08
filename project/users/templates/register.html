@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<h1>Please Register</h1>
+<h1>Register</h1>
 <br>
 <form class="form-signin" role="form" action="" method="post">
   {{ form.csrf_token }}
@@ -48,5 +48,7 @@
   </p>
   <button class="btn btn-sm btn-success" type="submit">Register</button>
 </form>
+<br>
+<p>Already have an account? <a href="/login">Login</a></p>
 
 {% endblock %}
