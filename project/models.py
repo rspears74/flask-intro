@@ -9,7 +9,7 @@ class BlogPost(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String, nullable=False)
     description = db.Column(db.String, nullable=False)
-    timestamp = db.Column(db.String)
+    timestamp = db.Column(db.DateTime(timezone=True))
     author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
     def __init__(self, title, description, author_id, timestamp):
