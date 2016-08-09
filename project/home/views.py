@@ -41,7 +41,7 @@ def home():
         flash('New entry was successfully posted. Thanks.')
         return redirect(url_for('home.home'))
     else:
-        posts = db.session.query(BlogPost).order_by(BlogPost.timestamp.desc())
+        posts = current_user.followed_posts()
         return render_template(
             'index.html',
             username=current_user.name,
@@ -54,3 +54,15 @@ def home():
 @home_blueprint.route('/')
 def welcome():
     return render_template('welcome.html')
+
+
+@home_blueprint.route('/all')
+@login_required
+def all_posts():
+    error = None
+    posts = db.session.query(BlogPost).order_by(BlogPost.timestamp.desc())
+    return render_template(
+        'allposts.html',
+        error=error,
+        posts=posts
+    )

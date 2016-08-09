@@ -3,6 +3,7 @@
 
 <p><a href="/user/{{ username }}">My Profile</a></p>
 <p><a href="/logout">Logout</a></p>
+<p><a href="/all">All Posts</a></p>
 <h1>Home</h1>
 
 <!-- Post form -->
@@ -36,11 +37,10 @@
 <!-- all posts -->
 <h3>Posts:</h3>
 {% for post in posts %}
-  <strong>Title:</strong> {{ post.title }} <br>
-  <strong>Post:</strong> {{ post.description }} <br>
-  <strong>Author:</strong>
-    <a href="/user/{{ post.author.name }}"> @{{ post.author.name }} </a> <br>
-  <strong>Time:</strong> {{ post.timestamp.strftime('%b %-d %y %-I:%M %p') }} <br>
+  <strong>{{ post.title }} </strong><br>
+  {{ post.description }} <br>
+  <a href="/user/{{ post.author.name }}"> @{{ post.author.name }} </a> <br>
+  {{ post.timestamp.strftime('%b %-d %y %-I:%M %p') }} <br>
 <br>
 {% endfor %}
 

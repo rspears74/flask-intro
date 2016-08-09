@@ -4,16 +4,26 @@
 <p><a href="/home">Home</a></p>
 <p><a href="/logout">Logout</a></p>
 <h1>@{{ username }}</h1>
+{% if user_exists and not own_profile %}
+  {% if following %}
+    <form action="/user/{{username}}/unfollow" method="post">
+      <button class="btn btn-sm btn-success" type="submit" value="Unfollow">Unfollow</button>
+    </form>
+  {% else %}
+    <form action="/user/{{username}}/follow" method="post">
+      <button class="btn btn-sm btn-success" type="submit" value="Follow">Follow</button>
+    </form>
+  {% endif %}
+{% endif %}
 <br>
 
 <!-- all posts -->
 <h3>Posts:</h3>
 {% for post in posts %}
-  <strong>Title:</strong> {{ post.title }} <br>
-  <strong>Post:</strong> {{ post.description }} <br>
-  <strong>Author:</strong>
+  <strong>{{ post.title }}</strong><br>
+  {{ post.description }}<br>
   <a href="/user/{{ post.author.name }}"> @{{ post.author.name }} </a><br>
-  <strong>Time:</strong> {{ post.timestamp.strftime('%b %-d %y %-I:%M %p') }} <br>
+  {{ post.timestamp.strftime('%b %-d %y %-I:%M %p') }} <br>
 <br>
 {% endfor %}
 
