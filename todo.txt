@@ -1,5 +1,4 @@
-refactor the way posts look
-add a way to "follow" another user
-reconfigure home page to show posts from followed users
+make the post description form box larger
+refactor the way posts look better
 add flask-mail and a password recovery system
 add a nice layout
