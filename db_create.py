@@ -2,7 +2,7 @@ from project import db
 from project.models import BlogPost
 
 # create the database and the db tables
-#db.create_all()
+db.create_all()
 
 # INSERT
 db.session.add(BlogPost("Good", "Gay homo bitch", 3))

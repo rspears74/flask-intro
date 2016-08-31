@@ -63,6 +63,7 @@ def all_posts():
     posts = db.session.query(BlogPost).order_by(BlogPost.timestamp.desc())
     return render_template(
         'allposts.html',
+        username=current_user.name,
         error=error,
         posts=posts
     )
